@@ -1,0 +1,26 @@
+/* *{
+    background-color: azure;
+}
+
+.auth .card-header {
+    background-color: azure;
+    color: black;
+}
+
+.auth .card-footer{
+    background-color: azure;
+    color: black;
+}
+
+.auth a {
+    color: black;
+}
+
+.auth .btn-primary{
+    background-color: azure;
+} */
+
+.user-avatar{
+    max-height: 50px;
+    max-width: 50px;
+}
