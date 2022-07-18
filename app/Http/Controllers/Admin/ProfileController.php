@@ -6,7 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\ResetPasswordRequest;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Auth;
+
 
 class ProfileController extends Controller
 {
@@ -73,6 +76,18 @@ class ProfileController extends Controller
 
         return back();
 
+    }
+
+    public function resetPassword(ResetPasswordRequest $request){
+
+        if(Auth::attempt(['email' => auth()->user()->email, 'password' => $request->password])){
+
+            $newPassword = bcrypt($request->passwordnew);
+            $user = User::findOrFail(auth()->user()->id);
+            $user->password = $newPassword;
+
+            $user->save();
+        }
     }
 
 }
