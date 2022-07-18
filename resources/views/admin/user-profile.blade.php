@@ -38,12 +38,11 @@
                     @error('address')<span class="text-danger small">{{ $message }}</span>@enderror
                 </div>
 
-                <div class="form-group col-md-3"><br>
+                <div class="form-group col-md-4"><br>
                     <label for="phone">Telefon</label><br>
                     <input name="phone" type="text" class="form-control @error('phone') is-invalid @enderror" id="phone" placeholder="Telefon" value="{{ $user->phone }}"><br>
                     @error('phone')<span class="text-danger small">{{ $message }}</span>@enderror
                 </div>
-
 
                 </div><br><br>
 
@@ -63,6 +62,39 @@
                 <button type="submit" class="btn btn-primary">Creaza user</button>
                 <a href="{{ route('users') }}" type="submit" class="btn btn-danger">Cancel</a>
             </form>
+
+            <br><br><br>
+            <hr>
+            <br><br><br>
+
+            <div class="row">
+
+                <form>
+
+                    <h1>Resetare parola</h1>
+
+                    <div class="form-group col-md-4"><br>
+                        <label for="password">Parola actuala</label><br>
+                        <input name="password" type="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Parola" value="{{ old('password') }}"><br>
+                        @error('password')<span class="text-danger small">{{ $message }}</span>@enderror
+                    </div>
+
+                    <div class="form-group col-md-4"><br>
+                        <label for="password">Parola noua</label><br>
+                        <input name="passwordnew" type="password" class="form-control @error('password') is-invalid @enderror" id="passwordnew" placeholder="Parola noua" value="{{ old('password') }}"><br>
+                        @error('passwordnew')<span class="text-danger small">{{ $message }}</span>@enderror
+                    </div>
+
+                    <div class="form-group col-md-4"><br>
+                        <label for="password_confirmation">Confirmare Parola noua</label><br>
+                        <input name="passwordnew_confirmation" type="password" class="form-control @error('password_confirmation') is-invalidated @enderror" id="passwordnew_confirmation" placeholder="Confirmare Parola noua" value="{{ old('password_confirmation') }}"><br>
+                        @error('passwordnew_confirmed')<span class="text-danger small">{{ $message }}</span>@enderror
+                    </div>
+
+                    <button type="submit" class="btn btn-danger">Resetare parola</button>
+
+                </form>
+        </div>
     </section>
 
 @endsection
