@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UsersController;
+use App\Http\Controllers\Admin\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,5 +42,16 @@ Route::prefix('admin')->middleware(['admin'])->group( function(){
 
 // end routele de administare
 
+// routele pentru utilizatori
+
+Route::prefix('admin')->middleware(['auth'])->group( function(){
+
+    Route::get('profile/{id}', [ProfileController::class, 'showProfile'])->name('user.profile');
+
+    Route::put('profile/{id}', [ProfileController::class, 'updateProfile'])->name('user.profile-update');
+});
+
+
+// end routele de utilizatori
 
 require __DIR__.'/auth.php';

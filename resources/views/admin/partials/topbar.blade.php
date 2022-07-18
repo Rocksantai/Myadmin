@@ -17,7 +17,7 @@
                 aria-haspopup="true" aria-expanded="false">{{ auth()->user()->name }} <i
                     class="fas fa-user fa-fw"></i></a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-
+                <a class="dropdown-item" href="{{ route('user.profile', auth()->user()->id) }}">Profil cont</a>
                 <li><hr class="dropdown-divider" /></li>
                 <form method="POST" action="{{ route('logout') }}">
                         @csrf

@@ -13,7 +13,7 @@ class UpdateUserRequest extends FormRequest
             'email' => 'required|email',
             'phone' => 'max:30',
             'address' => 'max:50',
-            'role' => 'required',
+            // 'role' => 'required',
             'photo' => 'max:1024'
 
         ];

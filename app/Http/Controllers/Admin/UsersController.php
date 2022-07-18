@@ -101,4 +101,7 @@ class UsersController extends Controller
 
     }
 
+    function deleteUser(Request $request, $id){
+
+    }
 }
