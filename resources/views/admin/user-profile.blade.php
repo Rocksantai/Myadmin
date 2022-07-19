@@ -68,7 +68,13 @@
             <br><br><br>
 
             <div class="row">
+                @if(Session::has('user_message'))
 
+                    <div class="alert alert-warning">
+                        {!! Session::get('user_message') !!}
+                    </div>
+
+                @endif
                 <form>
 
                     <h1>Resetare parola</h1>

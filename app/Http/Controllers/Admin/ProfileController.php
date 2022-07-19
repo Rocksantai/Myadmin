@@ -70,7 +70,7 @@ class ProfileController extends Controller
 
             $user->save();
 
-            return redirect(route('dashboard'));
+            return redirect(route('dashboard'))->with('success', 'Profilul a fost actualizat');
 
         }
 
@@ -87,7 +87,10 @@ class ProfileController extends Controller
             $user->password = $newPassword;
 
             $user->save();
+
+            return redirect()->back()->with('user_message', 'Parola a fost modificata cu succes. Noua parola pentru acest cont este <strong>' . $request->passwordnew . '</strong><br>. ');
         }
+
     }
 
 }
