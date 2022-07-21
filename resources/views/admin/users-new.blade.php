@@ -4,9 +4,7 @@
 
 @section('content')
 
-
 <br><br>
-
 
     <section class="container">
             <form action="{{ route('users.create') }}" method="POST" enctype="multipart/form-data">
@@ -54,6 +52,13 @@
                     <input name="password_confirmation" type="password" class="form-control @error('password_confirmation') is-invalidated @enderror" id="password_confirmation" placeholder="Confirmare Parola" value="{{ old('password_confirmation') }}"><br>
                     @error('password_confirmed')<span class="text-danger small">{{ $message }}</span>@enderror
                 </div>
+
+                <div class="form-check mt-3 text-danger">
+                    <input class="form-check-input" type="checkbox" value="1" id="defaultCheck1" name="verified">
+                    <label class="form-check-label" for="defaultCheck1">
+                      Email verificat
+                    </label>
+                  </div>
                 </div><br><br>
 
                 <div class="row">
@@ -108,7 +113,6 @@
               });
             }
     }
-
 
     </script>
 

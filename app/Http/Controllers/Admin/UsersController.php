@@ -47,9 +47,19 @@ class UsersController extends Controller
             $user->photo = $photoName;
         }
 
+        $mess = 'utilizatorul ' . $request->name . 'a fost
+        inregistrat in baza de date. Emailul nu a fost validat';
+
+        if($request->verified == 1)
+        {
+            $user->email_verified_at = now();
+            $mess = 'utilizatorul ' . $request->name . 'a fost
+        inregistrat in baza de date. Emailul a fost validat';
+        }
+
         $user->save();
 
-        return redirect(route('users'));
+        return redirect(route('users'))->with('success', $mess);
     }
 
     function showEditForm($id){
@@ -125,6 +135,17 @@ class UsersController extends Controller
     }
 
     function deleteUser(Request $request, $id){
+        $user = User::findOrFail($id);
 
+        if($user->role == "admin"){
+            return redirect(route('users'));
+        }
+
+        if(!($user->photo == "default.jpg")){
+           File::delete('images/users/' . $user->photo);
+        }
+
+        $user->delete();
+        return redirect(route('users'))->with('success', 'utilizatorul ' . $user->name . 'a fost sters definitiv din baza de date');
     }
 }
