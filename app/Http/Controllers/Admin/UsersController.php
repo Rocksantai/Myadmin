@@ -95,9 +95,32 @@ class UsersController extends Controller
         $user->address=$request->address;
         $user->role=$request->role;
 
+        $mess = 'datele utilizatorului au fost actualizate';
+
+        //verificare email
+
+        if($request->verified=='mark')
+        {
+            $user->email_verified_at = now();
+            $mess = "datele utilizatorului au fost actualizate si email-ul a fost validat cu seucces";
+        }
+
+        if($request->verified=='invalid')
+        {
+            $user->email_verified_at = null;
+            $mess = "datele utilizatorului au fost actualizate si email-ul a fost ne-validat";
+        }
+
+        if($request->verified=='send')
+        {
+            $user->email_verified_at = null;
+            $user->sendEmailVerificationNotification();
+            $mess = "datele utilizatorului au fost actualizate si email-ul a fost ne-validat";
+        }
+
         $user->save();
 
-        return redirect(route('users'));
+        return redirect(route('users'))->with('success', $mess);
 
     }
 

@@ -53,6 +53,22 @@ Editare utilizator - {{ $user->name }} - {!! $user->hasVerifiedEmail() ? '<i cla
                     @error('role')<span class="text-danger small">{{ $message }}</span>@enderror
                 </div>
 
+                <br><br><br><br><br><br><br><br>
+
+                <div class="row">
+                    <div class="form-group col-md-3">
+
+                        <label for="role">Verificare Email</label>
+                        <select id="verified" name="verified" class="custom-select">
+                            <option selected value="false">nici o actiune</option>
+                            <option class="text-success" value="send">trimite notificare</option>
+                            <option class="text-info" value="mark">valideaza email</option>
+                            <option class="text-danger" value="invalid">anuleaza validarea</option>
+
+                        </select>
+                    </div>
+                </div>
+
                 </div><br><br>
 
                 <div class="row">
