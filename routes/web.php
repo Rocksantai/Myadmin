@@ -44,7 +44,7 @@ Route::prefix('admin')->middleware(['admin'])->group( function(){
 
 // routele pentru utilizatori
 
-Route::prefix('admin')->middleware(['auth'])->group( function(){
+Route::prefix('admin')->middleware(['auth', 'verified'])->group( function(){
 
     Route::get('profile/{id}', [ProfileController::class, 'showProfile'])->name('user.profile');
 

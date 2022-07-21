@@ -1,6 +1,9 @@
 @extends('admin.template')
 
-@section('title', 'editare utilizator ' . $user->name)
+@section('title')
+Editare utilizator - {{ $user->name }} - {!! $user->hasVerifiedEmail() ? '<i class="fa fa-check" aria-hidden="true"></i> Email verificat' : '<i class="fa fa-circle text-danger" aria-hidden="true"></i> Email Neverificat' !!}
+
+@endsection
 
 @section('content')
 

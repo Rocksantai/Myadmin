@@ -24,6 +24,7 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
+                                    <th style="text-align: center;"><i class="fa fa-check" aria-hidden="true"></i></th>
                                     <th style="text-align: center;">Name</th>
                                     <th style="text-align: center;">Email</th>
                                     <th style="text-align: center;">Address / Phone</th>
@@ -35,6 +36,7 @@
                             <tbody>
                                 @foreach($users as $user)
                                 <tr style="text-align: center;">
+                                    <td>{!! $user->hasVerifiedEmail() ? '<i class="fa fa-check" aria-hidden="true"></i>' : '<i class="fa fa-circle text-danger" aria-hidden="true"></i>' !!}</td>
                                     <td>{{ $user->name }}<br>
                                         {{ \Carbon\Carbon::parse($user->created_at)->format('D j F - Y' ) }}
                                     </td>
@@ -51,6 +53,7 @@
                             </tbody>
                             <tfoot>
                                 <tr>
+                                    <th style="text-align: center;"><i class="fa fa-check" aria-hidden="true"></i></th>
                                     <th style="text-align: center;">Name</th>
                                     <th style="text-align: center;">Email</th>
                                     <th style="text-align: center;">Address / Phone</th>
