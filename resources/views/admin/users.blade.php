@@ -46,7 +46,25 @@
                                     <td>{{ $user->role }}</td>
                                     <td>
                                         <a href="{{ route('users.editForm', $user->id) }}" class="btn btn-success" title="Editeaza rand">Edit</a>&nbsp;&nbsp;
-                                        <button class="btn btn-danger" title="Sterge rand">Delete</button>
+
+                                          {{-- <form id="form-delete-{{ $user->id }}"
+                                            action="{{ route('users.delete', $user->id) }}" method="POST"
+                                            style="display:inline-block; ">
+                                            @csrf
+                                            @method('delete')
+                                          </form> --}}
+
+                                        <button class="btn btn-danger" title="Sterge rand"
+
+                                            onclick="
+                                                if(confirm('confirmati stergerea lui {{ $user->name }}')){
+                                                    document.getelementById('form-delete-{{ $user->id }}').submit();
+                                                }
+                                            "
+                                        >
+                                            Delete
+                                        </button>
+
                                     </td>
                                 </tr>
                                 @endforeach

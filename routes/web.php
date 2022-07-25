@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\CategoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +44,16 @@ Route::prefix('admin')->middleware(['admin'])->group( function(){
 
 // end routele de administare
 
+ // ruta pentru resetarea parolei
+
+ Route::prefix('admin')->middleware(['auth'])->group(function(){
+
+    // afisam categoriile
+    Route::get('categories', [CategoryController::class, 'showCategories'])->name('admin.categories');
+    Route::get('categories/new', [CategoryController::class, 'newCategory'])->name('admin.categories.new');
+
+ });
+
 // routele pentru utilizatori
 
 Route::prefix('admin')->middleware(['auth', 'verified'])->group( function(){
@@ -49,6 +61,10 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group( function(){
     Route::get('profile/{id}', [ProfileController::class, 'showProfile'])->name('user.profile');
 
     Route::put('profile/{id}', [ProfileController::class, 'updateProfile'])->name('user.profile-update');
+
+    // ruta pentru resetarea parolei
+
+    Route::put('reset-password', [ProfileController::class, 'resetPassword'])->name('user.reset-password');
 });
 
 

@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\User;
+use Database\Seeders\CategorySeeder;
+use Database\Seeders\UserSeeder;
 
 
 class DatabaseSeeder extends Seeder
@@ -16,14 +17,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-      User::create([
 
-        'name' => 'Administrator',
-        'email' => 'admin@gmail.com',
-        'password' => bcrypt('password'),
-        'phone' => '+07 665 6655',
-        'address' => 'Romania, str. 69',
-        'role' => 'admin'
+
+      $this->call([
+
+            // UserSeeder::class,
+            CategorySeeder::class
 
       ]);
     }

@@ -9,7 +9,7 @@
     <section class="container">
             <form action="{{ route('users.create') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                @method('put')
+                {{-- @method('put') --}}
                 <div class="row">
                     <div class="form-group col-md-4"><br>
                         <label for="name">Nume</label><br>
