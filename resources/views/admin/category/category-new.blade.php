@@ -13,7 +13,7 @@
 </ol>
 
     <section class="container">
-            <form action="#" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.categories.add') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <div class="row">
@@ -43,7 +43,7 @@
 
                     <div class="form-group col-md-2"><br>
                         <label for="views">Views</label><br>
-                        <input name="views" type="number" class="form-control @error('views') is-invalid @enderror" id="views" placeholder="Views" value="{{ old('views') }}"><br>
+                        <input name="views" type="number" defaultValue="0" min="0" class="form-control @error('views') is-invalid @enderror" id="views" placeholder="Views" value="{{ old('views') ? old('views') : 0 }}"><br>
                         @error('views')<span class="text-danger small">{{ $message }}</span>@enderror
                     </div>
 
@@ -81,26 +81,26 @@
 
                     <div class="form-group col-md-4"><br>
                         <label for="meta_title">Meta title</label><br>
-                        <input name="meta_title" type="text" class="form-control @error('meta_title') is-invalid @enderror" id="meta_title" placeholder="meta_title" value="{{ old('meta_title') }}"><br>
+                        <input name="meta_title" type="text" class="form-control @error('meta_title') is-invalid @enderror" id="meta_title" placeholder="meta title" value="{{ old('meta_title') }}"><br>
                         @error('meta_title')<span class="text-danger small">{{ $message }}</span>@enderror
                     </div>
 
                     <div class="form-group col-md-4"><br>
                         <label for="meta_description">Meta Description</label><br>
-                        <input name="meta_description" type="text" class="form-control @error('meta_description') is-invalid @enderror" id="meta_description" placeholder="meta_description" value="{{ old('meta_description') }}"><br>
+                        <input name="meta_description" type="text" class="form-control @error('meta_description') is-invalid @enderror" id="meta_description" placeholder="meta description" value="{{ old('meta_description') }}"><br>
                         @error('meta_description')<span class="text-danger small">{{ $message }}</span>@enderror
                     </div>
 
                     <div class="form-group col-md-4"><br>
                         <label for="meta_keywords">Meta Keywords</label><br>
-                        <input name="meta_keywords" type="text" class="form-control @error('meta_keywords') is-invalid @enderror" id="meta_keywords" placeholder="meta_keywords" value="{{ old('meta_keywords') }}"><br>
+                        <input name="meta_keywords" type="text" class="form-control @error('meta_keywords') is-invalid @enderror" id="meta_keywords" placeholder="meta keywords" value="{{ old('meta_keywords') }}"><br>
                         @error('meta_keywords')<span class="text-danger small">{{ $message }}</span>@enderror
                     </div>
                 </div>
 
                 <br>
                 <button type="submit" class="btn btn-primary">Creaza Category</button>
-                <a href="{{ route('users') }}" type="submit" class="btn btn-danger">Cancel</a>
+                <a href="{{ route('admin.categories') }}" type="submit" class="btn btn-danger">Cancel</a>
             </form>
     </section>
 
@@ -139,6 +139,28 @@
             }
     }
 
+    </script>
+
+    <script>
+
+        $('#title').on('blur',function(){
+
+            var theTitle=this.value.toLowerCase().trim(),
+                slugInput=$('#slug'),
+                theSlug=theTitle.replace(/&/g,'-and-')
+                    .replace(/[^a-z0-9-]+/g,'-')
+                    .replace(/\-\-+/g,'-')
+                    .replace(/^-+|-+$/g,'');
+
+            slugInput.val(theSlug);
+        });
+
+    </script>
+
+<script src="//cdn.ckeditor.com/4.19.1/standard/ckeditor.js"></script>
+
+    <script>
+         CKEDITOR.replace( 'excerpt' );
     </script>
 
 @endsection

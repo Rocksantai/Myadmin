@@ -51,6 +51,7 @@ Route::prefix('admin')->middleware(['admin'])->group( function(){
     // afisam categoriile
     Route::get('categories', [CategoryController::class, 'showCategories'])->name('admin.categories');
     Route::get('categories/new', [CategoryController::class, 'newCategory'])->name('admin.categories.new');
+    Route::post('categories/new', [CategoryController::class, 'addCategory'])->name('admin.categories.add');
 
  });
 
