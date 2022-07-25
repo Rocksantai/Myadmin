@@ -60,4 +60,11 @@ class CategoryController extends Controller
 
         return redirect(route('admin.categories'))->with('success', $mess);
     }
+
+    public function editCategory($id)
+    {
+        $category = Category::findOrFail($id);//crearea unei rute pe care o editam
+
+        return view('admin.category.category-edit')->with('category', $category);
+    }
 }

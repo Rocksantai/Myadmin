@@ -39,11 +39,12 @@
                                     <td>{{ $category->subtitle }}</td>
                                     <td>{{ $category->views }}</td>
                                     <td> <img class="user-avatar" src="/images/categories/{{ $category->photo }}" alt="#"> </td>
-                                    <td>{{ $category->meta_description }}<br>
-                                        {{ $category->meta_keywords }}
+                                    <td>
+                                        <span class="text-success">{{ $category->meta_description }}</span><br>
+                                        <span class="text-danger">{{ $category->meta_keywords }}</span>
                                     </td>
                                     <td>
-                                        <a href="#" class="btn btn-success" title="Editeaza rand">Edit</a>&nbsp;&nbsp;
+                                        <a href="{{ route('admin.categories.edit', $category->id) }}" class="btn btn-success" title="Editeaza categorie">Edit</a>&nbsp;&nbsp;
 
                                         <form id="form-delete-{{ $category->id }}"
                                             action="#" method="POST"

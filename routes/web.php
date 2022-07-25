@@ -53,6 +53,9 @@ Route::prefix('admin')->middleware(['admin'])->group( function(){
     Route::get('categories/new', [CategoryController::class, 'newCategory'])->name('admin.categories.new');
     Route::post('categories/new', [CategoryController::class, 'addCategory'])->name('admin.categories.add');
 
+    Route::get('categories/edit/{id}', [CategoryController::class, 'editCategory'])->name('admin.categories.edit');
+
+
  });
 
 // routele pentru utilizatori
