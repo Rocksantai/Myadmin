@@ -47,7 +47,7 @@
                                         <a href="{{ route('admin.categories.edit', $category->id) }}" class="btn btn-success" title="Editeaza categorie">Edit</a>&nbsp;&nbsp;
 
                                         <form id="form-delete-{{ $category->id }}"
-                                            action="#" method="POST"
+                                            action="{{ route('admin.categories.delete', $category->id) }}" method="POST"
                                             style="display:inline-block; ">
                                             @csrf
                                             @method('delete')
@@ -56,7 +56,7 @@
                                         <button class="btn btn-danger" title="Sterge rand"
 
                                             onclick="
-                                                if(confirm('confirmati stergerea lui {{ $category->title }}')){
+                                                if(confirm('confirmati stergerea categoriei {{ $category->title }}')){
                                                     document.getelementById('form-delete-{{ $category->id }}').submit();
                                                 }
                                             "

@@ -140,4 +140,19 @@ class CategoryController extends Controller
                 return redirect(route('admin.categories'))->with('success', $mess);
 
             }
+
+            public function deleteCategory($id){
+
+                //gasirea categoriei
+                $category = Category::findOrFail($id);
+
+
+                if(!($category->photo == "default.jpg")){
+                   File::delete('images/categories/' . $category->photo);
+                }
+
+                $category->delete();
+                return redirect(route('admin.categories'))->with('success', 'Categoria ' . $category->title . 'a fost stearsa definitiv din baza de date');
+
+            }
 }
