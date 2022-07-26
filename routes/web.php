@@ -46,7 +46,7 @@ Route::prefix('admin')->middleware(['admin'])->group( function(){
 
  // ruta pentru resetarea parolei
 
- Route::prefix('admin')->middleware(['auth'])->group(function(){
+ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function(){
 
     // afisam categoriile
     Route::get('categories', [CategoryController::class, 'showCategories'])->name('admin.categories');

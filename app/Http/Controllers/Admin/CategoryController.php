@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Http\Requests\CategoryAddRequest;
 use illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Gate;
 
 class CategoryController extends Controller
 {
@@ -21,11 +22,23 @@ class CategoryController extends Controller
 
     public function newCategory()
     {
+
+           // permisiune de accesare anumite sectiuni in functie de role
+           if (! Gate::allows('author-rights')) {
+            return redirect(route('admin.categories'))->with('error', 'nu aveti drept de executare');
+        }
+
+
         return view('admin.category.category-new');
     }
 
     public function addCategory(CategoryAddRequest $request) //ptr a avea acces la datele postate add un request
     {
+
+           // permisiune de accesare anumite sectiuni in functie de role
+           if (! Gate::allows('author-rights')) {
+            return redirect(route('admin.categories'))->with('error', 'nu aveti drept de executare');
+        }
 
         $this->validate($request,
 
@@ -78,6 +91,12 @@ class CategoryController extends Controller
 
             public function editCategory($id)
             {
+                // permisiune de accesare anumite sectiuni in functie de role
+                if (! Gate::allows('author-rights')) {
+                    return redirect(route('admin.categories'))->with('error', 'nu aveti drept de executare');
+                }
+
+
                 $category = Category::findOrFail($id);//crearea unei rute pe care o editam
 
                 return view('admin.category.category-edit')->with('category', $category);
@@ -86,6 +105,12 @@ class CategoryController extends Controller
             #####################################################################
 
             public function updateCategory(CategoryAddRequest $request, $id){
+
+                // permisiune de accesare anumite sectiuni in functie de role
+                if (! Gate::allows('author-rights')) {
+                    return redirect(route('admin.categories'))->with('error', 'nu aveti drept de executare');
+                }
+
 
                 $this->validate($request,
 
@@ -142,6 +167,11 @@ class CategoryController extends Controller
             }
 
             public function deleteCategory($id){
+
+                   // permisiune de accesare anumite sectiuni in functie de role
+                   if (! Gate::allows('author-rights')) {
+                    return redirect(route('admin.categories'))->with('error', 'nu aveti drept de executare');
+                }
 
                 //gasirea categoriei
                 $category = Category::findOrFail($id);

@@ -21,9 +21,10 @@
 
             </div>
         </div>
-            <div class="sb-sidenav-footer">
+            <div class="sb-sidenav-footer" style="font-size: 20px; ">
                 <div class="small">Logged in as: {{ auth()->user()->name }}</div>
-                Dashboard
+                <div class="small">User role: {{ auth()->user()->role }}</div>
+
             </div>
     </nav>
 </div>

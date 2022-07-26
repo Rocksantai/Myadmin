@@ -17,7 +17,7 @@
                     <i class="fas fa-table mr-1"></i>
                     Categories - {{ $categories->count() }}
 
-                    <a href="{{ route('admin.categories.new') }}" class="btn btn-success" style="float: right;">New Category</a>
+                    @can('author-rights')<a href="{{ route('admin.categories.new') }}" class="btn btn-success" style="float: right;">New Category</a>@endcan
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -45,7 +45,7 @@
                                     </td>
                                     <td>
                                         <a href="{{ route('admin.categories.edit', $category->id) }}" class="btn btn-success" title="Editeaza categorie">Edit</a>&nbsp;&nbsp;
-
+                                        @can('author-rights')
                                         <form id="form-delete-{{ $category->id }}"
                                             action="{{ route('admin.categories.delete', $category->id) }}" method="POST"
                                             style="display:inline-block; ">
@@ -63,6 +63,7 @@
                                         >
                                         Delete
                                         </button>
+                                        @endcan
                                     </td>
                                 </tr>
                                 @endforeach
