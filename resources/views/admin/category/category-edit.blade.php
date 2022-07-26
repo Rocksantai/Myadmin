@@ -13,7 +13,8 @@
 </ol>
 
     <section class="container">
-            <form action="#" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.categories.update', $category->id) }}" method="POST" enctype="multipart/form-data">
+                @method('put')
                 @csrf
 
                 <div class="row">
@@ -37,7 +38,7 @@
 
                     <div class="form-group col-md-8"><br>
                         <label for="excerpt">Excerpt</label><br>
-                        <textarea class="form-control @error('excerpt') is-invalid @enderror" id="excerpt" placeholder="excerpt">{{ old('excerpt') ? old('excerpt') : $category->excerpt }}</textarea>
+                        <textarea name="excerpt" class="form-control @error('excerpt') is-invalid @enderror" id="excerpt" placeholder="excerpt">{{ old('excerpt') ? old('excerpt') : $category->excerpt }}</textarea>
                         @error('excerpt')<span class="text-danger small">{{ $message }}</span>@enderror
                     </div>
 

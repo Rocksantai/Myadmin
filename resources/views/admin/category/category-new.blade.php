@@ -37,7 +37,7 @@
 
                     <div class="form-group col-md-8"><br>
                         <label for="excerpt">Excerpt</label><br>
-                        <textarea class="form-control @error('excerpt') is-invalid @enderror" id="excerpt" placeholder="excerpt"></textarea>
+                        <textarea name="excerpt" class="form-control @error('excerpt') is-invalid @enderror" id="excerpt" placeholder="excerpt"></textarea>
                         @error('excerpt')<span class="text-danger small">{{ $message }}</span>@enderror
                     </div>
 

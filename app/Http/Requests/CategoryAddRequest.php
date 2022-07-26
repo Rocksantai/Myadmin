@@ -26,7 +26,7 @@ class CategoryAddRequest extends FormRequest
         return [
 
             'title' => 'required|max:50',
-            'slug' => 'required|max:255| unique:categories,slug',
+            'slug' => 'required|max:255',
             'subtitle' => 'max:255',
             'excerpt' => 'max:6000',
             'views' => 'required| numeric|min:0',

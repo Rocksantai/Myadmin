@@ -54,6 +54,7 @@ Route::prefix('admin')->middleware(['admin'])->group( function(){
     Route::post('categories/new', [CategoryController::class, 'addCategory'])->name('admin.categories.add');
 
     Route::get('categories/edit/{id}', [CategoryController::class, 'editCategory'])->name('admin.categories.edit');
+    Route::put('categories/edit/{id}', [CategoryController::class, 'updateCategory'])->name('admin.categories.update');
 
 
  });
