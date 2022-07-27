@@ -16,17 +16,12 @@
     <!-- Bootstrap core CSS -->
     <link href="/front/css/bootstrap.min.css" rel="stylesheet">
 
-<!--
-Ramayana CSS Template
-https://templatemo.com/tm-529-ramayana
--->
-
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="/front/assets/css/fontawesome.css">
     <link rel="stylesheet" href="/front/assets/css/templatemo-style.css">
     <link rel="stylesheet" href="/front/assets/css/owl.css">
-    <link rel="stylesheet" href="/front/assets/css/custom.css">
+    {{-- <link rel="stylesheet" href="/front/assets/css/custom.css"> --}}
 
-@yield('customCss')
+{{-- @yield('customCss') --}}
 
   </head>

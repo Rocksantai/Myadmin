@@ -111,7 +111,7 @@ section {
 	padding-right: 0px;
 }
 .main-banner .banner-content {
-	background-image: url(../images/main-banner.jpg);
+	background-image: url(../images/web.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -1209,7 +1209,7 @@ section.buttons .container-fluid {
 
 #header .logo {
     text-align: right;
-    display: inline-block;	
+    display: inline-block;
     width: 100%;
     height: 100px;
     line-height: 100px;

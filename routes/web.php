@@ -77,7 +77,7 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group( function(){
 
 Route::get('/', function () {
     return view('front.home');
-});
+})->name('home');
 
 // end routele de utilizatori
 
