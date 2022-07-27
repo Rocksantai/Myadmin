@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Front\PagesController;
 
 
 /*
@@ -75,9 +76,7 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group( function(){
 
 //IMPLEMENTARE RUTE PENTRU FRONTEND
 
-Route::get('/', function () {
-    return view('front.home');
-})->name('home');
+Route::get('/', [PagesController::class, 'homePage'])->name('home');
 
 // end routele de utilizatori
 
