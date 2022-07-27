@@ -73,6 +73,11 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group( function(){
     Route::put('reset-password', [ProfileController::class, 'resetPassword'])->name('user.reset-password');
 });
 
+//IMPLEMENTARE RUTE PENTRU FRONTEND
+
+Route::get('/', function () {
+    return view('front.home');
+});
 
 // end routele de utilizatori
 
