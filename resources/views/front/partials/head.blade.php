@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="/front/assets/css/fontawesome.css">
     <link rel="stylesheet" href="/front/assets/css/templatemo-style.css">
     <link rel="stylesheet" href="/front/assets/css/owl.css">
-    {{-- <link rel="stylesheet" href="/front/assets/css/custom.css"> --}}
+    <link rel="stylesheet" href="/front/css/custom.css">
 
 {{-- @yield('customCss') --}}
 

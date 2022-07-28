@@ -1,0 +1,19 @@
+.page-heading{
+    padding: 10px;
+    background-color: #ececf473;
+}
+
+img {
+    max-width: 90%;
+    width: auto;
+    /* margin-left: 25%; */
+}
+
+.page-heading img {
+    border: 1px solid rgb(196, 194, 194);
+    padding: 5px;
+}
+
+.page-heading h1{
+    text-align: center;
+}

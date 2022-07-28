@@ -77,6 +77,7 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group( function(){
 //IMPLEMENTARE RUTE PENTRU FRONTEND
 
 Route::get('/', [PagesController::class, 'homePage'])->name('home');
+Route::get('/category/{category:slug}', [PagesController::class, 'categoryPage'])->name('category');
 
 // end routele de utilizatori
 

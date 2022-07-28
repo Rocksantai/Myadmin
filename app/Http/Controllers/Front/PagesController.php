@@ -12,4 +12,12 @@ class PagesController extends Controller
         $categories =Category::all()->sortBy('title');
         return view('front.home')->with('categories', $categories);
     }
+
+    public function categoryPage(Category $category) {
+
+        $category->views ++;
+        $category->save();
+        return view('front.category')->with('category', $category);
+
+    }
 }
