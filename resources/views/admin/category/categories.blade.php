@@ -24,6 +24,7 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
+                                    <th style="text-align: center;">Order</th>
                                     <th style="text-align: center;">Title / slug</th>
                                     <th style="text-align: center;">Subtitle</th>
                                     <th style="text-align: center;">Views</th>
@@ -34,7 +35,8 @@
                             </thead>
                             <tbody>
                                 @foreach($categories as $category)
-                                <tr style="text-align: center;">
+                                <tr style="text-align: center;" class="{{ $category->publish==2 ? 'bg-light' : 'bg-warning' }}">
+                                    <td>{{ $category->position }}</td>
                                     <td>{{ $category->title }}</td>
                                     <td>{{ $category->subtitle }}</td>
                                     <td>{{ $category->views }}</td>
@@ -70,6 +72,7 @@
                             </tbody>
                             <tfoot>
                                 <tr>
+                                    <th style="text-align: center;">Order</th>
                                     <th style="text-align: center;">Title / slug</th>
                                     <th style="text-align: center;">Subtitle</th>
                                     <th style="text-align: center;">Views</th>

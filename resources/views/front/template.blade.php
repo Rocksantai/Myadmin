@@ -11,6 +11,7 @@
 
             <!-- Header -->
            @include('front.partials.top-bar')
+           @include('admin.partials.messages')
 
                 @yield('content')
 

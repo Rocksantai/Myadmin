@@ -60,8 +60,8 @@ class CategoryController extends Controller
         $category->views = $request->views;
 
 
-        // $category->prder = $request->prder;
-        // $category->public = $request->public;
+        $category->position = $request->position;
+        $category->publish = $request->publish;
 
         $category->meta_title = $request->meta_title;
         $category->meta_description = $request->meta_description;
@@ -133,8 +133,8 @@ class CategoryController extends Controller
                 $category->views = $request->views;
 
 
-                // $category->prder = $request->prder;
-                // $category->public = $request->public;
+                $category->position = $request->position;
+                $category->publish = $request->publish;
 
                 $category->meta_title = $request->meta_title;
                 $category->meta_description = $request->meta_description;

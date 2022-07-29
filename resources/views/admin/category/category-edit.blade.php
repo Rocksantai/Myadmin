@@ -49,9 +49,9 @@
                     </div>
 
                     <div class="form-group col-md-2"><br>
-                        <label for="order">Order</label><br>
-                        <input name="order" type="number" class="form-control @error('order') is-invalid @enderror" id="order" placeholder="Order" value="{{ old('order') }}"><br>
-                        @error('order')<span class="text-danger small">{{ $message }}</span>@enderror
+                        <label for="position">Position</label><br>
+                        <input name="position" type="number" class="form-control @error('position') is-invalid @enderror" id="position" placeholder="Position" value="{{ $category->position }}"><br>
+                        @error('position')<span class="text-danger small">{{ $message }}</span>@enderror
                     </div>
 
 
@@ -71,8 +71,9 @@
 
 
                     <div class="form-check mt-3 text-danger col-md-3">
-                        <input class="form-check-input" type="checkbox" value="1" id="defaultCheck1" name="public">
-                        <label class="form-check-label" for="defaultCheck1">
+                        <input class="form-check-input" type="checkbox" value="1" id="publish" name="publish"
+                        {{ $category->publish==1 ? 'checked' :'' }}>
+                        <label class="form-check-label" for="publish">
                         Public
                         </label>
                   </div>
