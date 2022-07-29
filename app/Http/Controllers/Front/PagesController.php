@@ -9,7 +9,10 @@ use App\Models\Category;
 class PagesController extends Controller
 {
     public function homePage(){
-        $categories =Category::all()->sortBy('position')->where('publish', 1);
+        $categories =Category::all()
+            ->sortBy('title')
+            ->sortBy('position')
+            ->where('publish', 1);
         return view('front.home')->with('categories', $categories);
     }
 

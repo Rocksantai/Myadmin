@@ -1,24 +1,26 @@
-<nav id="menu">
+<nav id="menu" style="margin-bottom: 400px;">
     <ul>
-      <li><a href="{{ route('home') }}">Homepage</a></li>
-      <li><a href="simple_page.html">Simple Page</a></li>
-      <li><a href="shortcodes.html">Shortcodes</a></li>
-      <li>
-        <span class="opener">Dropdown One</span>
-        <ul>
-          <li><a href="#">First Sub Menu</a></li>
-          <li><a href="#">Second Sub Menu</a></li>
-          <li><a href="#">Third Sub Menu</a></li>
-        </ul>
-      </li>
-      <li>
-        <span class="opener">Dropdown Two</span>
-        <ul>
-          <li><a href="#">Sub Menu #1</a></li>
-          <li><a href="#">Sub Menu #2</a></li>
-          <li><a href="#">Sub Menu #3</a></li>
-        </ul>
-      </li>
-      <li><a href="https://www.google.com">External Link</a></li>
+        <li>
+            <a class="btn btn-secondary" type="button" href="{{ route('home') }}">
+                <i class="fas fa-home"></i> Homepage</a>
+        </li>
     </ul>
+    <br>
+            <ul>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle btn-block" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                         Categories
+                    </button>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2" style="padding-left: 207px;">
+                        @foreach($menu_categories as $category)
+                            <li style="text-align: center;">
+                                <a href="{{ route('category', $category->slug) }}" style="color: #000; text-align: center;">{{ $category->title }}</a>
+                            </li>
+                        @endforeach
+                    </div>
+              </div>
+            </ul>
+
   </nav>
+
