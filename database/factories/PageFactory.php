@@ -22,6 +22,8 @@ class PageFactory extends Factory
         $title = $this->faker->words(rand(1, 3), true);
         $slug = Str::slug($title);
 
+        $created_at = $this->faker->dateTimeBetween('-2 years', 'now');
+
         return [
             'title '=> $title,
             'slug' => $slug,
@@ -33,7 +35,9 @@ class PageFactory extends Factory
 
 
             'views' => rand(125, 2340),
-            'published_at' => $this->faker->randomElement(array(null, $this->faker->dateTimeBetween('-2 years', 'now'))),
+            'photo' => 'article.jpg',
+            'published_at' => $this->faker->randomElement(array(null, $created_at)),
+            'created_at' => $created_at,
             'user_id' => User::all()->where('role', 'author')->random(),
 
             'meta_title' => $this->faker->words(rand(2, 5), true),

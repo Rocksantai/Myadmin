@@ -18,6 +18,13 @@
                         <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
                         Categories
                     </a>
+                    <div class="sb-sidenav-menu-heading">Interface</div>
+
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="{{ route('admin.pages') }}">All Pages</a>
+                        <a class="nav-link" href="#">Published</a>
+                    </nav>
+
 
             </div>
         </div>

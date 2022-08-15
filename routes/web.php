@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Front\ArticlesController;
 use App\Http\Controllers\Front\PagesController;
 
 
@@ -59,7 +60,12 @@ Route::prefix('admin')->middleware(['admin'])->group( function(){
     Route::delete('categories/delete/{id}', [CategoryController::class, 'deleteCategory'])->name('admin.categories.delete');
 
 
+
+    // rutele pentru pagini
+    Route::get('pages', [ArticlesController::class,'showPages'])->name('admin.pages');
+
  });
+
 
 // routele pentru utilizatori
 
