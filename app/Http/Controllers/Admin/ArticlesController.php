@@ -11,6 +11,6 @@ class ArticlesController extends Controller
     public function showPages()
     {
         $pages = Page::all()->sortByDesc('created_at');
-        return $pages;
+        return view('admin.pages.pages')->with('pages', $pages);
     }
 }

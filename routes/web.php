@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Front\ArticlesController;
 use App\Http\Controllers\Front\PagesController;
+use App\Http\Controllers\Admin\ArticlesController;
 
 
 /*
@@ -62,7 +62,7 @@ Route::prefix('admin')->middleware(['admin'])->group( function(){
 
 
     // rutele pentru pagini
-    Route::get('pages', [ArticlesController::class,'showPages'])->name('admin.pages');
+    Route::get('pages/', [ArticlesController::class,'showPages'])->name('admin.pages');
 
  });
 
